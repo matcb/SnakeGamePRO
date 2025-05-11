@@ -54,3 +54,49 @@ export default class Snake {
 
 }
 
+// draw snake on canvas
+draw(ctx){
+    for(let i = 0; i<this.body.length; i++){
+        const segment = this.body[i];
+
+        // choose coloar based on segment(head/body)
+        if(i ===0){
+            ctx.fillstyle = this.config.colors.snakeHead;
+
+        } else {
+            ctx.fillstyle = this.config.colors.snakeBody;
+        }
+
+        // draw segment
+        ctx.fillRect(
+            segment.x * this.conf.gridSize,
+            segment.y * this.config.gridSize,
+            this.config.gridSize,
+            this.config.gridSize
+        )
+
+        // draw eyes on head
+        if(i ===0)
+        {
+            this.drawEyes(ctx)
+
+        }
+
+
+        }
+     }
+
+     drawEyes(ctx){
+        ctx.fillStyle = this.config.colors.snakeEyes;
+        const eyeSize = this.config.gridSize / 5;
+
+        // position eyes based on direction
+        let eyeX1, eyeY1, eyeX2, eyeY2;
+        const headX = this.head.x * this.config.gridSize;
+        const headY = this.head.y * this.config.gridSize;
+     }
+
+}
+
+
+
